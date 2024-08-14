@@ -1,0 +1,18 @@
+name: CI-CD
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Obtenha o código
+      uses: actions/checkout@v4.1.7
+    - name: Anutenticando no Docker Hub
+      uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }} #gustavohsnascimento
+          password: ${{ secrets.DOCKERHUB_TOKEN }} #450350Nasciment@Gu2021N@sci
+    
+   
